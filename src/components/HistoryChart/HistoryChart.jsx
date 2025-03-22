@@ -14,6 +14,7 @@ const HistoryChart = ({ chartData, title }) => {
         data: chartData,
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
             legend: { display: false },
             tooltip: {

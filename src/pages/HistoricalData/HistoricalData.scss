@@ -1,14 +1,6 @@
 .historical-data {
     padding: 1rem;
   
-    &__back {
-      margin-bottom: 1rem;
-    }
-    &__back-link {
-      text-decoration: none;
-      color: #007bff;
-      font-weight: 500;
-    }
     &__charts {
       display: flex;
       flex-direction: column;

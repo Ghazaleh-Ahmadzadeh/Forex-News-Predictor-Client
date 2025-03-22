@@ -1,4 +1,12 @@
-.history-chart {
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 139, 0.5);
+    margin-bottom: 1.5rem;
+  }
+  
+  .history-chart {
     &__title {
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
@@ -6,18 +14,12 @@
     }
     &__canvas-container {
       position: relative;
-      height: 300px;
+      width: 100%;
+      height: 50vh; /* responsive height */
     }
     &__canvas {
-      width: 100%;
-      height: 100%;
+      width: 100% !important;
+      height: 100% !important;
     }
-  }
-  
-  .card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
+  }  
   

@@ -5,12 +5,9 @@
       gap: 1rem;
       padding: 1rem;
     }
-  
     @media (min-width: 1024px) {
       &__content {
         grid-template-columns: 2fr 1fr;
       }
     }
-  }
-  
-  
+  }  

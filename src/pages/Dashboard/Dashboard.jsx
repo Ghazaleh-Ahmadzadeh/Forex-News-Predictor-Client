@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/Header/Header';
+import Layout from '../../components/Layout/Layout';
 import ExchangeRateCard from '../../components/ExchangeRateCard/ExchangeRateCard';
 import PredictionCard from '../../components/PredictionCard/PredictionCard';
 import HistoryChart from '../../components/HistoryChart/HistoryChart';
@@ -35,6 +35,7 @@ const Dashboard = () => {
         console.error('Error fetching dashboard data:', error);
       }
     };
+
     fetchData();
   }, [baseURL]);
 
@@ -43,8 +44,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashboard">
-      <Header title="USD/IRR Predictor" />
+    <Layout>
       <div className="dashboard__content">
         <div className="dashboard__left">
           <ExchangeRateCard currentRate={currentRate} />
@@ -55,11 +55,8 @@ const Dashboard = () => {
           <NewsCard news={news} />
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
 export default Dashboard;
-
-
-
