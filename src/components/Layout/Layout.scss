@@ -1,0 +1,37 @@
+.layout {
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    &__nav-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+    }
+    &__nav-right {
+      display: flex;
+      gap: 1rem;
+    }
+    &__nav-button {
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background-color: #f0f0f0;
+      color: #333;
+      border-radius: 4px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background-color: #e0e0e0;
+      }
+    }
+    &__main {
+      padding: 2rem;
+    }
+  }  

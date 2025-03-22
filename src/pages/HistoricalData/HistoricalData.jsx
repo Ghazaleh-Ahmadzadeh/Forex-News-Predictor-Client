@@ -1,62 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header/Header.jsx';
-import LineChart from '../../components/LineChart/LineChart.jsx';
+import Header from '../../components/Header/Header';
+import HistoryChart from '../../components/HistoryChart/HistoryChart';
 import './HistoricalData.scss';
 
 const HistoricalData = () => {
   const [thirtyDayData, setThirtyDayData] = useState(null);
   const [ninetyDayData, setNinetyDayData] = useState(null);
-  const [error, setError] = useState(null);
-  const baseURL = 'http://localhost:3000'; 
+  const baseURL = 'http://localhost:3000';
 
   useEffect(() => {
-    const fetchHistoricalData = async () => {
+    const fetchData = async () => {
       try {
-        const [thirtyRes, ninetyRes] = await Promise.all([
-          fetch(`${baseURL}/api/30days`),
-          fetch(`${baseURL}/api/90days`)
-        ]);
-
-        if (!thirtyRes.ok || !ninetyRes.ok) {
-          throw new Error('Failed to fetch historical data');
-        }
-
+        const thirtyRes = await fetch(`${baseURL}/api/30days`);
         const thirtyData = await thirtyRes.json();
-        const ninetyData = await ninetyRes.json();
-
         setThirtyDayData(thirtyData);
+
+        const ninetyRes = await fetch(`${baseURL}/api/90days`);
+        const ninetyData = await ninetyRes.json();
         setNinetyDayData(ninetyData);
-      } catch (err) {
-        console.error(err);
-        setError(err.message);
+      } catch (error) {
+        console.error('Error fetching historical data:', error);
       }
     };
 
-    fetchHistoricalData();
+    fetchData();
   }, [baseURL]);
 
-  if (error) {
-    return <div className="historical-data-page">Error: {error}</div>;
-  }
-
-  if (!thirtyDayData || !ninetyDayData) {
-    return <div className="historical-data-page">Loading historical data...</div>;
-  }
-
   return (
-    <div className="historical-data-page">
+    <div className="historical-data">
       <Header title="Historical Data" />
-      <div className="nav-bar">
-        <Link to="/" className="btn btn-secondary">Back to Dashboard</Link>
+      <div className="historical-data__back">
+        <Link to="/" className="historical-data__back-link">Back to Dashboard</Link>
       </div>
-      <div className="chart-section">
-        <h3>30-Day History</h3>
-        <LineChart data={thirtyDayData} />
-      </div>
-      <div className="chart-section">
-        <h3>90-Day History</h3>
-        <LineChart data={ninetyDayData} />
+      <div className="historical-data__charts">
+        {thirtyDayData ? (
+          <HistoryChart chartData={thirtyDayData} title="30-Day History" />
+        ) : (
+          <p>Loading 30-day data...</p>
+        )}
+        {ninetyDayData ? (
+          <HistoryChart chartData={ninetyDayData} title="90-Day History" />
+        ) : (
+          <p>Loading 90-day data...</p>
+        )}
       </div>
     </div>
   );

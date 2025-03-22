@@ -1,64 +1,16 @@
-.dashboard-page {
-    padding: 1rem 2rem;
-    
-    .dashboard-nav {
-      display: flex;
+.dashboard {
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 1rem;
-      margin-bottom: 2rem;
-  
-      .btn {
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        text-decoration: none;
-        color: #fff;
-        
-        &.btn-primary {
-          background-color: #4a90e2;
-        }
-        &.btn-secondary {
-          background-color: #555;
-        }
-      }
+      padding: 1rem;
     }
   
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-  
-      .info-card {
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        padding: 1rem;
-        flex: 1;
-        min-width: 200px;
-  
-        h2 {
-          margin-top: 0;
-        }
-  
-        .highlighted-text {
-          font-size: 1.5rem;
-          color: #4a90e2;
-        }
-      }
-    }
-  
-    .chart-section {
-      margin-bottom: 2rem;
-  
-      h3 {
-        margin-bottom: 1rem;
-      }
-    }
-  
-    .news-section {
-      margin-bottom: 2rem;
-  
-      h3 {
-        margin-bottom: 1rem;
+    @media (min-width: 1024px) {
+      &__content {
+        grid-template-columns: 2fr 1fr;
       }
     }
   }
+  
   

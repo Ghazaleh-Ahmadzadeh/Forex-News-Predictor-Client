@@ -1,0 +1,26 @@
+.exchange-rate-card {
+    &__title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    &__content {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #007bff;
+    }
+    &__rate {
+      margin: 0;
+    }
+    &__loading {
+      color: #999;
+    }
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
