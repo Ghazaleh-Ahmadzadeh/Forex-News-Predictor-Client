@@ -4,10 +4,10 @@ import './Header.scss';
 
 const Header = ({ title }) => {
   const location = useLocation();
-  const isHistorical = location.pathname === '/historical';
-  const navLabel = isHistorical ? 'Back to Dashboard' : 'Historical Data';
-  const navLink = isHistorical ? '/' : '/historical';
-
+  const isDashboard = location.pathname === '/';
+  const navLabel = isDashboard ? 'Historical Data' : 'Back to Dashboard';
+  const navLink = isDashboard ? '/historical' : '/';
+  
   return (
     <header className="header">
       <div className="header__left">

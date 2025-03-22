@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import ExchangeRateCard from '../../components/ExchangeRateCard/ExchangeRateCard';
 import PredictionCard from '../../components/PredictionCard/PredictionCard';
 import HistoryChart from '../../components/HistoryChart/HistoryChart';
-import NewsCard from '../../components/NewsCard/NewsCard';
 import './Dashboard.scss';
 
 const Dashboard = () => {
@@ -35,13 +35,14 @@ const Dashboard = () => {
         console.error('Error fetching dashboard data:', error);
       }
     };
-
     fetchData();
   }, [baseURL]);
 
   if (!chartData || !currentRate || !prediction) {
     return <div className="dashboard">Loading dashboard data...</div>;
   }
+
+  const previewNews = news.slice(0, 4);
 
   return (
     <Layout>
@@ -52,7 +53,26 @@ const Dashboard = () => {
           <HistoryChart chartData={chartData} title="7-Day History" />
         </div>
         <div className="dashboard__right">
-          <NewsCard news={news} />
+          <div className="news-preview">
+            <h2 className="news-preview__title">Latest News</h2>
+            <ul className="news-preview__list">
+              {previewNews.map((item, index) => (
+                <li key={index} className="news-preview__item">
+                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="news-preview__link">
+                    <h3 className="news-preview__item-title">{item.title}</h3>
+                  </a>
+                  <p className="news-preview__item-date">{new Date(item.publishedAt).toLocaleString()}</p>
+                  <p className="news-preview__item-sentiment">Impact: {item.sentiment}</p>
+                  <p className="news-preview__item-description">{item.description}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="news-preview__see-more">
+              <Link to="/news-insights" className="news-preview__see-more-button">
+                See More
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

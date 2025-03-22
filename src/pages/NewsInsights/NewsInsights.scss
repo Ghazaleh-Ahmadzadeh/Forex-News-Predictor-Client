@@ -1,0 +1,44 @@
+.news-insights {
+    padding: 1rem;
+    &__content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    &__title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    &__item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #ccc;
+    }
+    &__link {
+      text-decoration: none;
+      color: #007bff;
+    }
+    &__item-title {
+      font-size: 1.1rem;
+      margin: 0 0 0.25rem 0;
+    }
+    &__item-date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.25rem;
+    }
+    &__item-sentiment {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    &__item-description {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  }  
