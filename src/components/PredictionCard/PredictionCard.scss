@@ -9,21 +9,33 @@
   .prediction-card {
     &__title {
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
       color: #333;
     }
     &__content {
       font-size: 1rem;
       color: #333;
     }
+    &__rate-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
     &__rate {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #28a745;
-      margin-bottom: 1rem;
+      color: #000; 
+      margin: 0;
     }
-    &__loading {
-      color: #999;
+    &__arrow {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+    &__arrow--up {
+      color: green;
+    }
+    &__arrow--down {
+      color: red;
     }
     &__progress-container {
       margin-top: 1rem;
@@ -45,14 +57,10 @@
     &__progress-fill {
       height: 100%;
       background-color: #007bff;
-      width: 0%; 
       transition: width 0.3s ease;
     }
-
-    &__progress-percentage, 
-    &__progress-title {
-        font-size: 18px;
+    &__loading {
+      color: #999;
     }
-
   }  
   

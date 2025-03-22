@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import ExchangeRateCard from '../../components/ExchangeRateCard/ExchangeRateCard';
 import PredictionCard from '../../components/PredictionCard/PredictionCard';
@@ -11,7 +10,7 @@ const Dashboard = () => {
   const [prediction, setPrediction] = useState(null);
   const [chartData, setChartData] = useState(null);
   const [news, setNews] = useState([]);
-  const baseURL = 'http://localhost:3000';
+  const baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3000';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +34,7 @@ const Dashboard = () => {
         console.error('Error fetching dashboard data:', error);
       }
     };
+
     fetchData();
   }, [baseURL]);
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
       <div className="dashboard__content">
         <div className="dashboard__left">
           <ExchangeRateCard currentRate={currentRate} />
-          <PredictionCard prediction={prediction} />
+          <PredictionCard prediction={prediction} currentRate={currentRate} />
           <HistoryChart chartData={chartData} title="7-Day History" />
         </div>
         <div className="dashboard__right">
@@ -62,15 +62,15 @@ const Dashboard = () => {
                     <h3 className="news-preview__item-title">{item.title}</h3>
                   </a>
                   <p className="news-preview__item-date">{new Date(item.publishedAt).toLocaleString()}</p>
-                  <p className="news-preview__item-sentiment">Impact: {item.sentiment}</p>
+                  <p className="news-preview__item-sentiment">Sentiment: {item.sentiment}</p>
                   <p className="news-preview__item-description">{item.description}</p>
                 </li>
               ))}
             </ul>
             <div className="news-preview__see-more">
-              <Link to="/news-insights" className="news-preview__see-more-button">
+              <a href="/news-insights" className="news-preview__see-more-button">
                 See More
-              </Link>
+              </a>
             </div>
           </div>
         </div>
