@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import ExchangeRateCard from '../../components/ExchangeRateCard/ExchangeRateCard';
 import PredictionCard from '../../components/PredictionCard/PredictionCard';
 import HistoryChart from '../../components/HistoryChart/HistoryChart';
+import NewsItem from '../../components/NewsItem/NewsItem';
 import './Dashboard.scss';
 
 const Dashboard = () => {
@@ -42,7 +43,7 @@ const Dashboard = () => {
     return <div className="dashboard">Loading dashboard data...</div>;
   }
 
-  const previewNews = news.slice(0, 4);
+  const previewNews = news.slice(0, 5);
 
   return (
     <Layout>
@@ -58,12 +59,7 @@ const Dashboard = () => {
             <ul className="news-preview__list">
               {previewNews.map((item, index) => (
                 <li key={index} className="news-preview__item">
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="news-preview__link">
-                    <h3 className="news-preview__item-title">{item.title}</h3>
-                  </a>
-                  <p className="news-preview__item-date">{new Date(item.publishedAt).toLocaleString()}</p>
-                  <p className="news-preview__item-sentiment">Sentiment: {item.sentiment}</p>
-                  <p className="news-preview__item-description">{item.description}</p>
+                  <NewsItem newsItem={item} />
                 </li>
               ))}
             </ul>

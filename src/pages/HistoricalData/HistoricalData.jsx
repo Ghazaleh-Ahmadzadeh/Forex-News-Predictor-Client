@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import HistoryChart from '../../components/HistoryChart/HistoryChart';
 import './HistoricalData.scss';
@@ -6,7 +6,7 @@ import './HistoricalData.scss';
 const HistoricalData = () => {
   const [thirtyDayData, setThirtyDayData] = useState(null);
   const [ninetyDayData, setNinetyDayData] = useState(null);
-  const baseURL = 'http://localhost:3000';
+  const baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3000';
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
+import NewsItem from '../../components/NewsItem/NewsItem';
 import './NewsInsights.scss';
 
 const NewsInsights = () => {
   const [news, setNews] = useState([]);
-  const baseURL = 'http://localhost:3000';
+  const baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3000';
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -28,12 +29,7 @@ const NewsInsights = () => {
             <ul className="news-insights__list">
               {news.map((item, index) => (
                 <li key={index} className="news-insights__item">
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="news-insights__link">
-                    <h3 className="news-insights__item-title">{item.title}</h3>
-                  </a>
-                  <p className="news-insights__item-date">{new Date(item.publishedAt).toLocaleString()}</p>
-                  <p className="news-insights__item-sentiment">Impact: {item.sentiment}</p>
-                  <p className="news-insights__item-description">{item.description}</p>
+                  <NewsItem newsItem={item} />
                 </li>
               ))}
             </ul>
