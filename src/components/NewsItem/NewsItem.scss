@@ -1,54 +1,55 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .news-item {
-    margin-bottom: 1rem;
   
-    &__header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
   
-    &__date {
-      font-size: 0.85rem;
-      color: #666;
-      margin-right: 0.5rem;
-    }
+  &__date {
+    font-size: 0.85rem;
+    color: #666;
+    margin-right: 0.5rem;
+  }
   
-    &__sentiment-indicator {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
+  &__sentiment-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
   
-    &__sentiment-indicator--positive {
-      background-color: green;
-    }
+  &__sentiment-indicator--positive {
+    background-color: green;
+  }
   
-    &__sentiment-indicator--neutral {
-      background-color: yellow;
-    }
+  &__sentiment-indicator--neutral {
+    background-color: yellow;
+  }
   
-    &__sentiment-indicator--negative {
-      background-color: red;
-    }
+  &__sentiment-indicator--negative {
+    background-color: red;
+  }
   
-    &__sentiment-indicator--unknown {
-      background-color: gray;
-    }
+  &__sentiment-indicator--unknown {
+    background-color: gray;
+  }
   
-    &__link {
-      text-decoration: none;
-      color: inherit;
-    }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
   
-    &__title {
-      font-size: 1.1rem;
-      margin: 0 0 0.25rem;
-      color: #007bff;
-    }
+  &__title {
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+    color: $primary-color;
+  }
   
-    &__description {
-      font-size: 0.95rem;
-      color: #555;
-    }
-  }  
-  
+  &__description {
+    font-size: 0.95rem;
+    color: #555;
+  }
+}  

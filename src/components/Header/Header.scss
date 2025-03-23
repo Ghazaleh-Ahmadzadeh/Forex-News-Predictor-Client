@@ -1,35 +1,38 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px $shadow-color;
+
+  &__title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  &__right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 139, 0.5);
-  
-    &__title {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #007bff;
-    }
-  
-    &__right {
-      display: flex;
-      align-items: center;
-    }
-  
-    &__button {
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      background-color: #007bff;
-      color: #fff;
-      border-radius: 4px;
-      font-weight: 500;
-      transition: background-color 0.2s ease;
-    }
-  
-    &__button:hover {
-      background-color: #0056b3;
-    }
-  }  
+  }
+
+  &__button {
+    text-decoration: none;
+    padding: $btn-padding;
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: $btn-border-radius;
+    font-weight: $btn-font-weight;
+    transition: background-color 0.2s ease;
+  }
+
+  &__button:hover {
+    background-color: $primary-dark;
+  }
+}
   

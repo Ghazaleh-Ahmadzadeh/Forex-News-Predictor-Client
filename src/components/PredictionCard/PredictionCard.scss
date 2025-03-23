@@ -1,66 +1,69 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 139, 0.5);
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $shadow-color;
+  margin-bottom: 1.5rem;
+}
+
+.prediction-card {
+  &__title {
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
+    color: $text-color;
   }
-  
-  .prediction-card {
-    &__title {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-    &__content {
-      font-size: 1rem;
-      color: #333;
-    }
-    &__rate-wrapper {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    &__rate {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #000; 
-      margin: 0;
-    }
-    &__arrow {
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-    }
-    &__arrow--up {
-      color: green;
-    }
-    &__arrow--down {
-      color: red;
-    }
-    &__progress-container {
-      margin-top: 1rem;
-    }
-    &__progress-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      color: #333;
-    }
-    &__progress-bar {
-      width: 100%;
-      height: 1rem;
-      background-color: #e0e0e0;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    &__progress-fill {
-      height: 100%;
-      background-color: #007bff;
-      transition: width 0.3s ease;
-    }
-    &__loading {
-      color: #999;
-    }
-  }  
+  &__content {
+    font-size: 1rem;
+    color: $text-color;
+  }
+  &__rate-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  &__rate {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+  }
+  &__arrow {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  &__arrow--up {
+    color: green;
+  }
+  &__arrow--down {
+    color: red;
+  }
+  &__progress-container {
+    margin-top: 1rem;
+  }
+  &__progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: $text-color;
+  }
+  &__progress-bar {
+    width: 100%;
+    height: 1rem;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  &__progress-fill {
+    height: 100%;
+    background-color: $primary-color;
+    transition: width 0.3s ease;
+  }
+  &__loading {
+    color: #999;
+  }
+}
   

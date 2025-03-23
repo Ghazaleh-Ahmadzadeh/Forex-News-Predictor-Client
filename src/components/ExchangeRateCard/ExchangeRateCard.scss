@@ -1,27 +1,30 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .card {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 139, 0.5);
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px $shadow-color;
+  margin-bottom: 1.5rem;
+}
+
+.exchange-rate-card {
+  &__title {
+    font-size: 1.25rem;
     margin-bottom: 1.5rem;
+    color: $text-color;
   }
-  
-  .exchange-rate-card {
-    &__title {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-    &__content {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #007bff;
-    }
-    &__rate {
-      margin: 0;
-    }
-    &__loading {
-      color: #999;
-    }
-  }  
+  &__content {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+  &__rate {
+    margin: 0;
+  }
+  &__loading {
+    color: #999;
+  }
+}
   
