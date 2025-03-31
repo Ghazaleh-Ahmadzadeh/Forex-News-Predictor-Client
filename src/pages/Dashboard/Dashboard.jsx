@@ -43,7 +43,7 @@ const Dashboard = () => {
     return <div className="dashboard">Loading dashboard data...</div>;
   }
 
-  const previewNews = news.slice(0, 4);
+  const previewNews = news.slice(0, 5);
 
   return (
     <Layout>

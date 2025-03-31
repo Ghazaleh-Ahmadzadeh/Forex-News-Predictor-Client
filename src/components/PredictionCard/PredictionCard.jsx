@@ -32,7 +32,7 @@ const PredictionCard = ({ prediction, currentRate }) => {
             <div className="prediction-card__progress-container">
               <div className="prediction-card__progress-labels">
                 <span className="prediction-card__progress-title">Confidence</span>
-                <span className="prediction-card__progress-percentage">{prediction.confidence}%</span>
+                <span className="prediction-card__progress-percentage">{prediction.confidence}</span>
               </div>
               <div className="prediction-card__progress-bar">
                 <div
